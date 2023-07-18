@@ -6,4 +6,12 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="Collections\FakeUser.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Collections\FakeUser.cs" />
+  </ItemGroup>
+
 </Project>
