@@ -1,6 +1,6 @@
 ﻿namespace FakeStore.Database.Models
 {
-    internal class FakeCategory
+    public class FakeCategory
     {
         public int Id { get; set; }
         public string Name { get; set; }
