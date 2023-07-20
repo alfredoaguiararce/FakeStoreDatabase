@@ -14,10 +14,22 @@ namespace TestAPI.Controllers
             _FakeStoredDb = fakeStoredDb;
         }
 
-        [HttpGet]
-        public IActionResult Get()
+        [HttpGet("users")]
+        public IActionResult GetUsers()
         {
             return Ok(_FakeStoredDb.GetUsers());
+        }
+
+        [HttpGet("products")]
+        public IActionResult GetProducts()
+        {
+            return Ok(_FakeStoredDb.GetProducts());
+        }
+            
+        [HttpGet("categories")]
+        public IActionResult GetCategories()
+        {
+            return Ok(_FakeStoredDb.GetCategories());
         }
     }
 }

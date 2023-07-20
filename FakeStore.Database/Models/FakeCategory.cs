@@ -2,10 +2,10 @@
 {
     public class FakeCategory
     {
-        public int Id { get; set; }
+        public int CategoryId { get; set; }
         public string Name { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime? IsArchived { get; set; }
+        public DateTime? Archived { get; set; }
         public int UserCreatorId { get; set; }
 
     }

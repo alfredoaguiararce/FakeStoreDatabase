@@ -2,7 +2,7 @@
 {
     public class FakeProduct
     {
-        public int Id { get; set; }
+        public int ProductId { get; set; }
         public int UserCreatorId { get; set; }
         public int CategoryId { get; set; }
         public string Name { get; set; }
