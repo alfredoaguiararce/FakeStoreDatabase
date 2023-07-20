@@ -12,10 +12,20 @@ builder.Services.UseFakeStoreDatabase(new FakeDatabaseConfigurator()
     UsersConfiguration = new UsersConfigurator()
     {
         MaxDefaultUsers = 10,
+        NullProbability = 0.1f
+    },
+    ProductsConfiguration = new ProductsConfigurator()
+    {
+        MaxProducts = 100,
+        MaxPrice = 1000,
+        MinPrice = 100,
         NullProbability = 0.3f
     },
-    MaxDefaultProducts = 0,
-    MaxDefaultCategories = 0
+    CategoriesConfiguration = new CategoriesConfigurator()
+    {
+        MaxCategories = 10,
+        NullProbability = 0.2f
+    }
 });
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
