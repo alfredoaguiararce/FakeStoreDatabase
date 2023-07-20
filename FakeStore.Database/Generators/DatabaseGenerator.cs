@@ -9,8 +9,6 @@ namespace FakeStore.Database.Generators
         public DatabaseGenerator(FakeDatabaseConfigurator configurator)
         {
             _Configurator = configurator;
-            Faker faker = new Faker();
-
         }
 
         public List<FakeUser> GetUsers()
