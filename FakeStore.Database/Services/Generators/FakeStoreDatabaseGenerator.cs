@@ -11,6 +11,14 @@ namespace FakeStore.Database.Services.Generators
             _Configurator = configurator;
         }
 
+        /// <summary>
+        /// The function `GetUsers` generates a list of fake user objects with random properties such as
+        /// first name, last name, username, email, password, creation date, archived status, and admin
+        /// status.
+        /// </summary>
+        /// <returns>
+        /// The method `GetUsers()` returns a list of `FakeUser` objects.
+        /// </returns>
         public List<FakeUser> GetUsers()
         {
             int MaxDefaultUsers = _Configurator.UsersConfiguration.MaxDefaultUsers;
@@ -33,6 +41,13 @@ namespace FakeStore.Database.Services.Generators
             return fakeUsers;
         }
 
+        /// <summary>
+        /// The function generates a list of fake products with random attributes based on configuration
+        /// settings.
+        /// </summary>
+        /// <returns>
+        /// The method `GetProducts` returns a list of `FakeProduct` objects.
+        /// </returns>
         public List<FakeProduct> GetProducts()
         {
             int MaxCategories = _Configurator.CategoriesConfiguration.MaxCategories;
@@ -59,6 +74,13 @@ namespace FakeStore.Database.Services.Generators
             return fakeProducts;
         }
 
+        /// <summary>
+        /// The function `GetCategories` generates a list of fake categories with unique names, created
+        /// dates, and optional archived dates, using a configuration and faker library.
+        /// </summary>
+        /// <returns>
+        /// The method is returning a list of FakeCategory objects.
+        /// </returns>
         public List<FakeCategory> GetCategories()
         {
             int MaxCategories = _Configurator.CategoriesConfiguration.MaxCategories;
@@ -101,6 +123,11 @@ namespace FakeStore.Database.Services.Generators
 
     }
 
+    /* The `IFakeStoreDatabaseGenerator` interface defines three methods: `GetCategories()`,
+    `GetProducts()`, and `GetUsers()`. These methods are used to retrieve lists of fake categories,
+    products, and users, respectively. The interface allows for abstraction and separation of concerns,
+    making it easier to swap out different implementations of the `FakeStoreDatabaseGenerator` class
+    that adhere to this interface. */
     internal interface IFakeStoreDatabaseGenerator
     {
         List<FakeCategory> GetCategories();

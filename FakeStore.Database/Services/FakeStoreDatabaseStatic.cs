@@ -24,6 +24,7 @@ namespace FakeStore.Database.Statics
             }
             return fakeUsers;
         }
+
         public List<FakeProduct> GetProducts()
         {
             if (fakeProducts is null)
@@ -33,6 +34,7 @@ namespace FakeStore.Database.Statics
             }
             return fakeProducts;
         }
+
 
         public List<FakeCategory> GetCategories()
         {
@@ -47,10 +49,31 @@ namespace FakeStore.Database.Statics
 
     }
 
+    /* The `IFakeStoreDatabase` interface defines a contract for a class that provides access to a fake
+    store database. It declares three methods: */
     public interface IFakeStoreDatabase
     {
+        /// <summary>
+        /// The function returns a list of fake users, generating them if they don't already exist.
+        /// </summary>
+        /// <returns>
+        /// The method is returning a List of FakeUser objects.
+        /// </returns>
         List<FakeUser> GetUsers();
+        /// <summary>
+        /// The function returns a list of fake products, retrieving them from a database generator if
+        /// they haven't been retrieved before.
+        /// </summary>
+        /// <returns>
+        /// The method is returning a List of FakeProduct objects.
+        /// </returns>
         List<FakeProduct> GetProducts();
+        /// <summary>
+        /// The function returns a list of fake categories, generating them if they don't already exist.
+        /// </summary>
+        /// <returns>
+        /// The method is returning a List of FakeCategory objects.
+        /// </returns>
         List<FakeCategory> GetCategories();
     }
 }
