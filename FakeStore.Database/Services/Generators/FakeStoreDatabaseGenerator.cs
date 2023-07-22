@@ -3,10 +3,10 @@ using FakeStore.Database.Models;
 
 namespace FakeStore.Database.Services.Generators
 {
-    internal class DatabaseGenerator : IFakeStoreDatabaseGenerator
+    internal class FakeStoreDatabaseGenerator : IFakeStoreDatabaseGenerator
     {
         private readonly FakeDatabaseConfigurator _Configurator;
-        public DatabaseGenerator(FakeDatabaseConfigurator configurator)
+        public FakeStoreDatabaseGenerator(FakeDatabaseConfigurator configurator)
         {
             _Configurator = configurator;
         }
@@ -101,7 +101,7 @@ namespace FakeStore.Database.Services.Generators
 
     }
 
-    public interface IFakeStoreDatabaseGenerator
+    internal interface IFakeStoreDatabaseGenerator
     {
         List<FakeCategory> GetCategories();
         List<FakeProduct> GetProducts();
