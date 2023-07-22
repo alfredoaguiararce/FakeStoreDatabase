@@ -1,4 +1,4 @@
-﻿using FakeStore.Database.Generators;
+﻿using FakeStore.Database.Services.Generators;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TestAPI.Controllers
