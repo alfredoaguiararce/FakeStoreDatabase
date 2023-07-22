@@ -1,9 +1,9 @@
 ﻿using Bogus;
 using FakeStore.Database.Models;
 
-namespace FakeStore.Database.Generators
+namespace FakeStore.Database.Services.Generators
 {
-    internal class DatabaseGenerator : IFakeStoreDatabase
+    internal class DatabaseGenerator : IFakeStoreDatabaseGenerator
     {
         private readonly FakeDatabaseConfigurator _Configurator;
         public DatabaseGenerator(FakeDatabaseConfigurator configurator)
@@ -101,7 +101,7 @@ namespace FakeStore.Database.Generators
 
     }
 
-    public interface IFakeStoreDatabase
+    public interface IFakeStoreDatabaseGenerator
     {
         List<FakeCategory> GetCategories();
         List<FakeProduct> GetProducts();
