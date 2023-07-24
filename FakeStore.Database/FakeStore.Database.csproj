@@ -4,6 +4,17 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <Title>FakeStore.Database</Title>
+    <Authors>Alfredo Aguiar Arce</Authors>
+    <Company>Alfredo Aguiar Arce</Company>
+    <Description>The FakeStoreDatabase project provides a static database of fake data for use in other projects. This fake database includes simulated information for users, products, and categories, which can be useful for testing and development without the need to access a real database.</Description>
+    <PackageProjectUrl>https://github.com/alfredoaguiararce/FakeStoreDatabase</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/alfredoaguiararce/FakeStoreDatabase</RepositoryUrl>
+    <PackageTags>database, fake, bogus, store</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -11,6 +22,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
     <None Include="Collections\FakeUser.cs" />
   </ItemGroup>
 
