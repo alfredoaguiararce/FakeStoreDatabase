@@ -64,6 +64,34 @@ This method returns a list of fake products, retrieving them from the database g
 ### **`List<FakeCategory> GetCategories()`**
 
 This method returns a list of fake categories, generating them if they do not already exist. If the categories have already been generated previously, the function will return the existing list. Each fake category is represented by a **`FakeCategory`** object.
+## **Update methods**
+### **`void UpdateUsers(List<FakeUser> Users)`**
+
+The function updates the list of fake users with a new list of users.
+### **`void UpdateProducts(List<FakeProduct> Products)`**
+
+The function updates the list of fake products with a new list of fake products.
+### **`void UpdateCategories(List<FakeCategory> Categories)`**
+
+The function updates the list of fake categories with the provided list of 
+
+Example: 
+
+
+```csharp
+List<FakeUser> users = _FakeStoredDb.GetUsers();
+FakeUser? userToUpdate = users.FirstOrDefault(u => u.UserId == userId);
+
+if (userToUpdate != null)
+{
+    userToUpdate.UserName = "string new";
+    userToUpdate.Email = "new email";
+    // Update other properties as needed.
+}
+
+// Save changes
+_FakeStoredDb.UpdateUsers(users);
+```
 
 ## **Working with Relationships between Collections**
 
@@ -74,7 +102,6 @@ While this functionality is still in development, you can use LINQ (Language Int
 Below is an example of how to perform a join based on the **`CategoryId`** between the categories and products collections:
 
 ```csharp
-csharpCopy code
 List<FakeCategory> categories = _FakeStoredDb.GetCategories();
 List<FakeProduct> products = _FakeStoredDb.GetProducts();
 
@@ -99,7 +126,6 @@ In this example, we are joining the **`categories`** and **`products`** collecti
 Let's say we want to get the product names for a specific **`CategoryId`** (e.g., **`categoryIdToFilter = 1`**):
 
 ```csharp
-csharpCopy code
 int categoryIdToFilter = 1;
 var productsWithCategoryId = joinedData
     .Where(data => data.Category.CategoryId == categoryIdToFilter)
