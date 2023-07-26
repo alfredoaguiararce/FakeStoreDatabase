@@ -25,6 +25,8 @@ namespace FakeStore.Database.Statics
             return fakeUsers;
         }
 
+        public void UpdateUsers(List<FakeUser> Users) => fakeUsers = Users;
+
         public List<FakeProduct> GetProducts()
         {
             if (fakeProducts is null)
@@ -35,6 +37,7 @@ namespace FakeStore.Database.Statics
             return fakeProducts;
         }
 
+        public void UpdateProducts(List<FakeProduct> Products) => fakeProducts = Products;
 
         public List<FakeCategory> GetCategories()
         {
@@ -46,6 +49,7 @@ namespace FakeStore.Database.Statics
             return fakeCategories;
         }
 
+        public void UpdateCategories(List<FakeCategory> Categories) => fakeCategories = Categories;
 
     }
 
@@ -75,5 +79,22 @@ namespace FakeStore.Database.Statics
         /// The method is returning a List of FakeCategory objects.
         /// </returns>
         List<FakeCategory> GetCategories();
+        /// <summary>
+        /// The function updates the list of fake users with a new list of users.
+        /// </summary>
+        /// <param name="Users">The parameter "Users" is a list of objects of type "FakeUser".</param>
+        void UpdateUsers(List<FakeUser> Users);
+        /// <summary>
+        /// The function updates the list of fake products with a new list of fake products.
+        /// </summary>
+        /// <param name="Products">The parameter "Products" is a list of objects of type
+        /// "FakeProduct".</param>
+        void UpdateProducts(List<FakeProduct> Products);
+        /// <summary>
+        /// The function updates the list of fake categories with the provided list of categories.
+        /// </summary>
+        /// <param name="Categories">The parameter "Categories" is a list of objects of type
+        /// "FakeCategory".</param>
+        void UpdateCategories(List<FakeCategory> Categories);
     }
 }
