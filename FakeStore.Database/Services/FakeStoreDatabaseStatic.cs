@@ -25,6 +25,8 @@ namespace FakeStore.Database.Statics
             return fakeUsers;
         }
 
+        public void UpdateUsers(List<FakeUser> Users) => fakeUsers = Users;
+
         public List<FakeProduct> GetProducts()
         {
             if (fakeProducts is null)
@@ -34,7 +36,7 @@ namespace FakeStore.Database.Statics
             }
             return fakeProducts;
         }
-
+        public void UpdateProducts(List<FakeProduct> Products) => fakeProducts = Products;
 
         public List<FakeCategory> GetCategories()
         {
@@ -46,6 +48,7 @@ namespace FakeStore.Database.Statics
             return fakeCategories;
         }
 
+        public void UpdateCategories(List<FakeCategory> Categories) => fakeCategories = Categories;
 
     }
 
@@ -75,5 +78,8 @@ namespace FakeStore.Database.Statics
         /// The method is returning a List of FakeCategory objects.
         /// </returns>
         List<FakeCategory> GetCategories();
+        void UpdateUsers(List<FakeUser> Users);
+        void UpdateProducts(List<FakeProduct> Products);
+        void UpdateCategories(List<FakeCategory> Categories);
     }
 }
