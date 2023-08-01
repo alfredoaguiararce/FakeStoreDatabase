@@ -6,9 +6,11 @@ namespace FakeStore.Database.Services.Generators
     internal class FakeStoreDatabaseGenerator : IFakeStoreDatabaseGenerator
     {
         private readonly FakeDatabaseConfigurator _Configurator;
-        public FakeStoreDatabaseGenerator(FakeDatabaseConfigurator configurator)
+        private readonly IFakeImageUrl fakeImageUrl;
+        public FakeStoreDatabaseGenerator(FakeDatabaseConfigurator configurator, IFakeImageUrl fakeImageUrl)
         {
             _Configurator = configurator;
+            this.fakeImageUrl = fakeImageUrl;
         }
 
         /// <summary>
@@ -35,7 +37,7 @@ namespace FakeStore.Database.Services.Generators
                 .RuleFor(u => u.CreatedAt, f => f.Date.Past())
                 .RuleFor(u => u.Archived, (f, u) => f.Random.Bool(ProbabilityOfNull) ? null : f.Date.Recent(30, DateTime.Now)) // 30% de probabilidad de que sea null
                 .RuleFor(u => u.IsAdmin, f => f.Random.Bool())
-                .RuleFor(u => u.ProfilePictureUrl, (f, u) => f.Random.Bool(ProbabilityOfNull) ? null : "https://picsum.photos/640?random="+ counter); // 30% de probabilidad de que sea null
+                .RuleFor(u => u.ProfilePictureUrl, (f, u) => f.Random.Bool(ProbabilityOfNull) ? null : fakeImageUrl.GetFakeImageUrl(640,640)); // 30% de probabilidad de que sea null
 
             List<FakeUser> fakeUsers = faker.Generate(MaxDefaultUsers);
 
@@ -70,7 +72,7 @@ namespace FakeStore.Database.Services.Generators
                 .RuleFor(p => p.Price, f => f.Random.Float(MinPrice, MaxPrice))
                 .RuleFor(p => p.CreatedAt, f => f.Date.Past())
                 .RuleFor(u => u.Archived, (f, u) => f.Random.Bool(ProbabilityOfNull) ? null : f.Date.Recent(30, DateTime.Now))
-                .RuleFor(p => p.ImageUrl, p => "https://picsum.photos/640?random="+ counter) ; // 30% de probabilidad de que sea null
+                .RuleFor(p => p.ImageUrl, p => fakeImageUrl.GetFakeImageUrl(640, 640)) ; // 30% de probabilidad de que sea null
 
             List<FakeProduct> fakeProducts = faker.Generate(MaxDefaultUsers);
             return fakeProducts;

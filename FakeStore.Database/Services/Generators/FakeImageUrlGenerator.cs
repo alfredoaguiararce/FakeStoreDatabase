@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FakeStore.Database.Services.Generators
+﻿namespace FakeStore.Database.Services.Generators
 {
     internal class FakeImageUrlGenerator: IFakeImageUrl
     {
@@ -12,12 +6,19 @@ namespace FakeStore.Database.Services.Generators
 
         public string GetFakeImageUrl(int ImageWidth, int ImageHeight)
         {
-            throw new NotImplementedException();
+            return $"https://picsum.photos/{ImageWidth}/{ImageHeight}?random={GenerateRandomNumber(1, 10000)}";
         }
 
         public List<string> GetImagesUrl(int NumberOfImages, int ImageWidth, int ImageHeight)
         {
-            throw new NotImplementedException();
+            List<string> images = new List<string>();
+
+            for (int i = 0; i < NumberOfImages; i++)
+            {
+                images.Add($"https://picsum.photos/{ImageWidth}/{ImageHeight}?random={GenerateRandomNumber(1, 10000)}");
+            }
+
+            return images;
         }
 
         private int GenerateRandomNumber(int minValue, int maxValue)

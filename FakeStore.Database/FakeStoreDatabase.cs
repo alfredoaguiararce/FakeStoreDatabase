@@ -25,7 +25,12 @@ namespace FakeStore.Database
         /// </returns>
         public static void UseFakeStoreDatabase(this IServiceCollection Services, FakeDatabaseConfigurator configurator)
         {
-            Services.AddScoped<IFakeStoreDatabaseGenerator>(service => new FakeStoreDatabaseGenerator(configurator));
+            Services.AddScoped<IFakeImageUrl, FakeImageUrlGenerator>();
+            Services.AddScoped<IFakeStoreDatabaseGenerator>(service => 
+            {
+                IFakeImageUrl fakeImageUrl = service.GetRequiredService<IFakeImageUrl>();
+                return new FakeStoreDatabaseGenerator(configurator, fakeImageUrl);
+             });
             Services.AddScoped<IFakeStoreDatabase>(service =>
             {
                 IFakeStoreDatabaseGenerator generator = service.GetRequiredService<IFakeStoreDatabaseGenerator>();
