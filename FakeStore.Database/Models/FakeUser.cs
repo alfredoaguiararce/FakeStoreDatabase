@@ -11,5 +11,6 @@
         public DateTime CreatedAt { get; set; }
         public DateTime? Archived { get; set; }
         public bool IsAdmin { get; set; }
+        public string? ProfilePictureUrl { get; set; }
     }
 }

@@ -10,6 +10,7 @@
         public float Price { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? Archived { get; set; }
+        public string ImageUrl { get; set; }
 
     }
 }
