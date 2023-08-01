@@ -15,7 +15,7 @@
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
     <PackageReleaseNotes>Add update methods for the statics list generated.</PackageReleaseNotes>
   </PropertyGroup>
 
