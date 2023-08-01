@@ -138,6 +138,48 @@ In this example, we use the **`Where`** clause to filter the elements in **`join
 
 **Note**: As the functionality for handling relationships is developed in the project, specific methods and utilities are expected to be added to work with relationships more easily and efficiently.
 
+## **Generate fake image urls**
+
+These methods allow you to generate fake image URLs using the 'https://picsum.photos/' service. The GetImagesUrl method generates multiple fake image URLs in a list, while the GetFakeImageUrl method generates a single fake image URL. The image URLs are based on the specified _ImageWidth_ and _ImageHeight_.
+
+**Interface: IFakeImageUrl**
+
+This interface defines methods for generating fake image URLs.
+
+**GetImagesUrl Method**
+
+```csharp
+List<string> GetImagesUrl(int NumberOfImages, int ImageWidth, int ImageHeight);
+```
+
+Generates a list of fake image URLs.
+
+Parameters:
+
+_NumberOfImages (int)_: The number of fake image URLs to generate.
+_ImageWidth (int)_: The width of the images in pixels.
+_ImageHeight (int)_: The height of the images in pixels.
+Returns:
+
+_List<string>_: A list of fake image URLs.
+
+**GetFakeImageUrl Method**
+
+```csharp
+string GetFakeImageUrl(int ImageWidth, int ImageHeight);
+```
+
+Generates a single fake image URL.
+
+Parameters:
+
+_ImageWidth (int)_: The width of the image in pixels.
+_ImageHeight (int)_: The height of the image in pixels.
+Returns:
+
+_string_: A fake image URL.
+
+
 ## **License**
 
 This project is distributed under the MIT license. See the LICENSE file for more details.
